@@ -1,0 +1,29 @@
+Item,Part No,Description,Qty,Make/Buy,Drawing,STEP,Example vendor / source,Example P/N or spec,Notes
+1,ST-001,Bottom crossover AMMT housing,1,MACHINE,ST-DWG-001,ST_crossover.stp,Local machine shop,4140 HT per drawing,O-Rings Parker Viton
+2,ST-002,Release collet assembly,1,MACHINE,ST-DWG-002,ST_release.stp,Local machine shop,17-4 PH H900,Includes shear pins
+3,ST-003,Pressure balance module,1,MACHINE,ST-DWG-003,ST_pressure.stp,Local machine shop,17-4 PH + piston seals Trelleborg,20 ksi rated
+4,ST-004,Stroke actuator housing,1,MACHINE,ST-DWG-004,ST_stroke.stp,Local machine shop,17-4 PH H900,Ball screw purchased separately
+5,ST-005,Load cell section housing,1,MACHINE,ST-DWG-005,ST_loadcell.stp,Local machine shop,17-4 PH,Contains purchased load cell
+6,ST-006,Motor/gearbox housing,1,MACHINE,ST-DWG-006,ST_motor.stp,Local machine shop,17-4 PH,Motor/gearbox purchased
+7,ST-007,Battery housing (dual module),1,MACHINE,ST-DWG-007,ST_battery.stp,Local machine shop,Ti or 17-4 PH,Cells purchased separately
+8,ST-008,Telemetry cartridge housing,1,MACHINE,ST-DWG-008,ST_telemetry.stp,Local machine shop,17-4 PH,PCB assembly separate
+9,ST-009,Cable head / CCL sub,1,MACHINE,ST-DWG-009,ST_head.stp,Local machine shop,4140 HT,Rope socket per cable size
+10,ST-010,Inner stroke push mandrel,1,MACHINE,ST-DWG-010,ST_inner_stroke_mandrel.stp,Local machine shop,17-4 PH H900 H1150M,Hard chrome contact zone
+11,ST-COTS-001,Ball screw assembly,1,BUY,ST-DWG-004,—,Thomson (Altra),6409KAA x custom length,0.500 in lead; 55 klbf rating
+12,ST-COTS-002,Linear bearings (pair),2,BUY,ST-DWG-004,—,Thomson,60 Case standard x custom,Inside stroke module
+13,ST-COTS-003,Load cell,1,BUY,ST-DWG-005,—,Interface Force Measurement,1200 Standard (trimmed),350 ohm bridge
+14,ST-COTS-004,BLDC motor,1,BUY,ST-DWG-006,—,Maxon Motor,EC-i 40 brushless,Lab prototype
+15,ST-COTS-005,Planetary gearbox,1,BUY,ST-DWG-006,—,Maxon Motor,GP 42 HP,Reduction per torque calc
+16,ST-COTS-006,Rotary encoder,1,BUY,ST-DWG-006,—,US Digital,E5 2048 CPR,Motor feedback
+17,ST-COTS-007,Li-SOCl2 D cell,48,BUY,ST-DWG-007,—,Saft or Tadiran,LS14500 / TL-5903,Primary non-rechargeable
+18,ST-COTS-008,Battery fuse holder,2,BUY,ST-DWG-007,—,Littelfuse,471 series,Redundant isolation
+19,ST-COTS-009,MCU board (lab),1,BUY,ST-DWG-008,—,Texas Instruments,MSP430FR5994 launchpad adapted,Production: wireline telemetry vendor
+20,ST-COTS-010,Flash memory,1,BUY,ST-DWG-008,—,Industrial SD or SPI flash,128 MB min,Force/stroke curve storage
+21,ST-COTS-011,Downhole pressure transducer,1,BUY,ST-DWG-008,—,Keller AG,10LHPX 0-20 ksi,Oil-filled housing
+22,ST-COTS-012,Temperature sensor,1,BUY,ST-DWG-008,—,Various,PT100 Class A RTD,In telemetry bore
+23,ST-COTS-013,LVDT stroke sensor,1,BUY,ST-DWG-008,—,Macro Sensors,CD375 custom stroke,12 in travel
+24,ST-COTS-014,Wireline telemetry modem,1,BUY,ST-DWG-008,—,Glenair + custom,805 series connector,RS-485 or proprietary WL
+25,ST-COTS-015,CCL mandrel magnet,1,BUY,ST-DWG-009,—,Scout Downhole / custom,SDCCL-3625 class,Optional depth correlation
+26,ST-COTS-016,O-ring kit (tool),1,BUY,All,—,Parker / Apple Rubber,Viton 90 duro,Per groove chart in ST-DWG-001/003
+27,ST-COTS-017,Shear pins,8,BUY,ST-DWG-002,—,McMaster-Carr,90107A195 (17-4 PH 0.125 dia),Replace after each set
+28,ST-COTS-018,Belleville spring stack,1,BUY,ST-DWG-002,—,Spirol / Associated Spring,Custom stack,Release collet preload

@@ -1,0 +1,17 @@
+{
+  "drawings": [
+    "D:\\letsseewhatthiscando\\export\\drawings\\dxf\\DWG-001_iris_segment.dxf",
+    "D:\\letsseewhatthiscando\\export\\drawings\\dxf\\DWG-002_iris_module_assy.dxf",
+    "D:\\letsseewhatthiscando\\export\\drawings\\dxf\\DWG-003_plug_54in_GA.dxf",
+    "D:\\letsseewhatthiscando\\export\\drawings\\dxf\\DWG-006_prototype_whole_tool_detailed.dxf",
+    "D:\\letsseewhatthiscando\\export\\drawings\\dxf\\DWG-004_setting_tool_SHEX-ST-54.dxf",
+    "D:\\letsseewhatthiscando\\export\\drawings\\dxf\\DWG-005_mtm_ring_segment.dxf",
+    "D:\\letsseewhatthiscando\\export\\drawings\\dxf\\DWG-007_seal_land_module.dxf",
+    "D:\\letsseewhatthiscando\\export\\drawings\\dxf\\DWG-008_slip_segment.dxf",
+    "D:\\letsseewhatthiscando\\export\\drawings\\dxf\\DWG-009_stage1_stent_sleeve.dxf",
+    "D:\\letsseewhatthiscando\\export\\drawings\\dxf\\DWG-011_stage2_stent_sleeve.dxf",
+    "D:\\letsseewhatthiscando\\export\\drawings\\dxf\\DWG-012_stage3_iris_support_sleeve.dxf",
+    "D:\\letsseewhatthiscando\\export\\drawings\\dxf\\DWG-010_fishing_neck.dxf"
+  ],
+  "bom": "D:\\letsseewhatthiscando\\export\\drawings\\BOM-001.csv"
+}

@@ -1,0 +1,43 @@
+{
+  "kit": "SHEX-AK-20",
+  "parts": {
+    "ST-101_setting_sleeve": {
+      "file": "D:\\letsseewhatthiscando\\export\\release\\step\\parts\\ST-101_setting_sleeve.stp",
+      "elapsed_s": 0.0,
+      "material": "4140 HT (AMS 6415)",
+      "qty_per_kit": 1
+    },
+    "ST-102_tension_rod": {
+      "file": "D:\\letsseewhatthiscando\\export\\release\\step\\parts\\ST-102_tension_rod.stp",
+      "elapsed_s": 0.0,
+      "material": "4140 HT (AMS 6415)",
+      "qty_per_kit": 1
+    },
+    "ST-103_shear_stud": {
+      "file": "D:\\letsseewhatthiscando\\export\\release\\step\\parts\\ST-103_shear_stud.stp",
+      "elapsed_s": 0.0,
+      "material": "4140 HT calibrated lot",
+      "qty_per_kit": 1
+    },
+    "ST-104_stroke_spacer": {
+      "file": "D:\\letsseewhatthiscando\\export\\release\\step\\parts\\ST-104_stroke_spacer.stp",
+      "elapsed_s": 0.0,
+      "material": "4140 HT",
+      "qty_per_kit": 2
+    }
+  },
+  "assemblies": {
+    "rigged": {
+      "file": "D:\\letsseewhatthiscando\\export\\release\\step\\assemblies\\SHEX-AK-20_INTERFACE_RIGGED.stp",
+      "stl": "D:\\letsseewhatthiscando\\export\\release\\stl\\SHEX-AK-20_INTERFACE_RIGGED.stl",
+      "bodies": 8,
+      "elapsed_s": 4.1
+    },
+    "released": {
+      "file": "D:\\letsseewhatthiscando\\export\\release\\step\\assemblies\\SHEX-AK-20_INTERFACE_RELEASED.stp",
+      "stl": "D:\\letsseewhatthiscando\\export\\release\\stl\\SHEX-AK-20_INTERFACE_RELEASED.stl",
+      "bodies": 9,
+      "elapsed_s": 4.2
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "part_no": "SHEX-008",
+  "drawing": "DWG-009",
+  "run_in": {
+    "od_in": 1.688,
+    "id_in": 1.562,
+    "length_in": 4.0,
+    "developed_width_in": 5.105088062083414,
+    "pitch_in": 0.42542400517361784,
+    "cells": 12,
+    "rings": 6
+  },
+  "set_envelope": {
+    "od_in": 3.375,
+    "id_in": 1.45,
+    "pitch_in": 0.631591023065448,
+    "length_deploy_in": 3.1148356863431874
+  },
+  "kinematics": {
+    "circumferential_stretch_ratio": 1.4846153846153847,
+    "od_expansion_ratio": 1.9994075829383886,
+    "foreshortening_in": 0.8851643136568126,
+    "foreshortening_pct": 22.129107841420314,
+    "strut_length_in": 0.41127897593299195
+  },
+  "files": {
+    "developed_run_in_dxf": "export\\stent\\developed_dxf\\SHEX-008_developed_RUNIN.dxf",
+    "developed_set_check_dxf": "export\\stent\\developed_dxf\\SHEX-008_developed_SET_check.dxf",
+    "wrap_preview_dxf": "export\\stent\\developed_dxf\\SHEX-008_wrap_preview_RUNIN.dxf"
+  },
+  "notes": [
+    "Circumferential stretch run->SET mean pitch: 1.485\u00d7 (OD ratio 1.999\u00d7)",
+    "Estimated deploy length: 3.115 in (foreshorten 0.885 in, 22.1%)"
+  ]
+}

@@ -1,0 +1,42 @@
+# SHEX-BP-UHEX-54 — Production configuration
+# 1.688" run OD | 9-5/8" 40# set | 54" total length
+
+tool:
+  name: SHEX-BP-UHEX-54
+  run_od_in: 1.688
+  total_length_in: 54.0
+  set_casing_od_in: 9.625
+  set_casing_weight_lbft: 40
+  set_casing_drift_id_in: 8.679
+  target_differential_psi: [3000, 5000]
+
+length_budget_in:
+  fishing_neck_top_sub: 3.0
+  upper_slip_assembly: 4.5
+  upper_mtm_rings: 2.5
+  seal_module_mtm_primary: 18.0
+  stage3_iris_module: 7.5
+  stage2_middle_stent: 5.0
+  stage1_inner_stent: 4.0
+  lower_slip_assembly: 4.5
+  bottom_equalizing_sub: 2.0
+  setting_mandrel_tail: 3.0
+
+stage3_iris:
+  mechanism: segmented_sliding_ring_helix
+  segment_count: 16
+  segment_thickness_in: 0.187        # production: FEA baseline 0.125 marginal at 5000 psi
+  segment_axial_in: 2.75
+  collapsed_od_in: 5.750
+  deployed_od_in: 8.650
+  actuation_stroke_in: 4.0
+  material: "17-4 PH H900"
+
+setting_tool:
+  name: SHEX-ST-54
+  interface: "1.375 AMMT to plug fishing neck"
+  total_length_ft: 20.5
+  od_in: 3.625
+  stroke_in: 12.0
+  max_force_klbf: 55
+  conveyance: ["wireline", "slickline", "coiled_tubing"]

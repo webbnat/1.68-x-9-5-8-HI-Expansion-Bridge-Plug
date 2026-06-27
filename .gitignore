@@ -1,0 +1,24 @@
+# --- Python virtual environments (machine-specific, large) ---
+.venv/
+env/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# --- Legacy first-pass material (excluded from this repo) ---
+First Pass Files/
+
+# --- Large STL meshes are shipped as a multi-volume RAR archive instead ---
+# (see export/_stl_archive/ ; raw .stl are regenerable via the build scripts)
+*.stl
+
+# --- Scratch / helper scripts ---
+_*.ps1
+_mesh_ft.py
+_render_ft.py
+
+# --- OS / editor noise ---
+Thumbs.db
+.DS_Store
+*.tmp

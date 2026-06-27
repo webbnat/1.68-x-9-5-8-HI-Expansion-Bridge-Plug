@@ -1,0 +1,15 @@
+SHEX-008 (DWG-009) — developed diamond pattern
+
+RUN-IN (laser authority)
+  OD 1.688 / bore ID 1.562 / L 4.000
+  Developed W 5.105 / pitch 0.425 / 12 cells × 6 rings
+  Strut width 0.045 / kerf 0.008
+
+SET envelope (validation target)
+  OD 3.375 / bore ID 1.450
+  Target pitch 0.632 (1.485× circumferential stretch)
+  Deploy length ~3.115 (foreshorten 0.885 in, 22.1%)
+  Strut edge length (run-in) 0.4113 in
+
+  Circumferential stretch run->SET mean pitch: 1.485× (OD ratio 1.999×)
+  Estimated deploy length: 3.115 in (foreshorten 0.885 in, 22.1%)

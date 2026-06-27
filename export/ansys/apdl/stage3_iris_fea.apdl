@@ -1,0 +1,39 @@
+! SHEX-BP-UHEX-54 Stage 3 Iris FEA — ANSYS MAPDL template
+! Workflow:
+!   1. Import STEP: File > Import > STEP in Workbench OR
+!      /AUX15, IGESIN, stage3_iris_segment_mm.stp
+!   2. Assign Material 1 (17-4 PH) to iris segments
+!   3. Import casing surface as target body (Material 3, rigid or soft)
+!   4. Define frictional contact (mu=0.12) segment toe -> casing
+!   5. Apply displacement on mandrel: 4.0 in (101.6 mm) axial
+!   6. Lock casing OD; apply 5000 psi on bore face after lock-up step
+
+/CLEAR,START
+/FILNAME,shex_stage3_iris
+
+! --- Step 1: Deploy iris (4" mandrel stroke) ---
+/SOLU
+ANTYPE,STATIC
+NLGEOM,ON
+NSUBST,20,100,10
+
+! Mandrel top face: UX=0, UY=0, UZ=101.6 mm (4.0 in)
+! (Replace node component name with your selection)
+! D,mandrel_top,UX,0
+! D,mandrel_top,UY,0
+! D,mandrel_top,UZ,101.6
+
+! Casing inner surface fixed
+! D,casing_nodes,UX,0
+! D,casing_nodes,UY,0
+! D,casing_nodes,UZ,0
+
+SOLVE
+
+! --- Step 2: Pressure lock-up 5000 psi ---
+! SF,bore_face,PRES,5000  ! psi on bore
+
+FINISH
+
+! Post: PLNSOL,S,EQV for segment root fillet
+!       CNTRSTAT for contact status

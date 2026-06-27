@@ -1,0 +1,7 @@
+! Import mesh from Abaqus INP format
+! ANSYS Workbench: External Model > Abaqus > plug_uhex_54_assembly_mm.inp
+! MAPDL alternative:
+! /AUX15
+! ABAQUS,D:/letsseewhatthiscando/export/ansys/mesh/plug_uhex_54_assembly_mm.inp
+
+! Or use CDREAD after converting via /INPUT in WB External Model component

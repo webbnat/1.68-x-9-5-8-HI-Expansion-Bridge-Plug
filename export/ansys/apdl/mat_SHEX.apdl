@@ -1,0 +1,31 @@
+! SHEX-BP-UHEX-54 — Material definitions for ANSYS MAPDL
+! Import: /INPUT,mat_SHEX,apdl
+
+/prep7
+! 17-4 PH H900 (iris segments, MTM rings)
+MP,EX,1,28.5E6       ! psi
+MP,PRXY,1,0.27
+MP,DENS,1,0.282      ! lb/in3
+TB,BISO,1,1,2
+TBDATA,1,160000,1900000  ! yield, tangent (approx)
+
+! HNBR seal (Mooney-Rivlin approx as neo-Hookean hyperelastic)
+! Use TB,HYPER,2,... in full model — placeholder linear:
+MP,EX,2,500
+MP,PRXY,2,0.49
+
+! P110 casing (contact target)
+MP,EX,3,30E6
+MP,PRXY,3,0.3
+
+! Inconel 718 helix guide
+MP,EX,4,29E6
+MP,PRXY,4,0.29
+TB,BISO,4,1,2
+TBDATA,1,150000,0
+
+ET,1,187               ! SOLID187 tet
+ET,2,174               ! CONTA174 contact
+ET,3,170               ! TARGE170 target
+
+FINISH

@@ -1,0 +1,65 @@
+# SHEX-BP Ultra-High Expansion — 9-5/8" 40# Casing
+# Run OD 1.688" | Set ID 8.679" drift | Max tool length 72"
+
+tool:
+  name: SHEX-BP-UHEX-9625
+  run_od_in: 1.688
+  set_casing_od_in: 9.625
+  set_casing_weight_lbft: 40
+  set_casing_nominal_id_in: 8.835
+  set_casing_drift_id_in: 8.679
+  max_tool_length_in: 72.0          # 6 feet
+  expansion_ratio_diameter: 5.14    # drift_id / run_od
+  max_differential_psi_target: 5000
+  conveyance: ["wireline", "slickline", "coiled_tubing"]
+
+# Multi-stage cascade expansion (nested stent modules)
+# Single stent cannot achieve 5.14x — medical max ~2.5-3x per stage
+expansion_cascade:
+  stages: 3
+  stage_1:
+    collapsed_od_in: 1.688
+    expanded_od_in: 3.375
+    ratio: 2.00
+    axial_length_in: 4.0
+    mechanism: inner_stent_bladder
+  stage_2:
+    collapsed_od_in: 3.375
+    expanded_od_in: 5.750
+    ratio: 1.70
+    axial_length_in: 5.0
+    mechanism: middle_stent_wedge
+  stage_3:
+    collapsed_od_in: 5.750
+    expanded_od_in: 8.650
+    ratio: 1.50
+    axial_length_in: 6.0
+    mechanism: outer_stent_petal_iris
+  total_expansion_axial_in: 15.0
+  setting_stroke_in: 24.0           # long-stroke setting tool (Halliburton DPU-I-LS class)
+
+# Tool length budget (72" max)
+length_budget_in:
+  fishing_neck_top_sub: 3.0
+  upper_slip_assembly: 4.5
+  equalizing_ports: 1.5
+  mtm_ring_stack_upper: 3.0
+  seal_stack: 36.0                  # primary pressure seal zone
+  mtm_ring_stack_lower: 3.0
+  expansion_cascade_module: 15.0
+  lower_slip_assembly: 4.5
+  bottom_sub: 2.0
+  setting_piston_mandrel: 2.5
+  total: 72.0
+
+seal:
+  deployed_od_in: 8.720
+  element_length_in: 4.0
+  element_count: 9                  # 36" total HNBR
+  backup_per_element: mtm_petal
+  petal_count_per_land: 16
+
+slips:
+  upper_and_lower: true
+  segments_each: 8
+  casing_contact_arc_in: 1.2

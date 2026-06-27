@@ -1,0 +1,14 @@
+{
+  "annulus_radial_in": 0.146,
+  "Stage 1_deploy_psi": 941,
+  "Stage 1_hold_psi": 470,
+  "Stage 1_radial_force_lbf": 19950,
+  "Stage 2_deploy_psi": 470,
+  "Stage 2_hold_psi": 276,
+  "Stage 2_radial_force_lbf": 24938,
+  "stage1_bladder_dV_in3": 26.45,
+  "stage1_bladder_rating_psi": 2500,
+  "stage2_prime_mover": "inflatable bladder (DCN-11; swage rejected)",
+  "stage2_bladder_dV_in3": 115.81,
+  "stage2_bladder_rating_psi": 2500
+}

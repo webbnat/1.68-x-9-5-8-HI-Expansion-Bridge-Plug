@@ -1,0 +1,82 @@
+# SHEX-ST-54 — Setting Tool Configuration
+
+tool:
+  name: SHEX-ST-54
+  od_in: 3.625
+  total_length_in: 246.0
+  total_length_ft: 20.5
+  stroke_in: 12.0
+  max_force_klbf: 55
+  max_temp_f: 350
+  pressure_rating_psi: 20000
+  top_connection: "1.4375-20 UNEF rope socket / wireline cable head"
+  bottom_connection: "1.375 in AMMT to plug fishing neck"
+
+# Bottom (plug end) → Top (wireline). Z=0 at crossover in CAD.
+modules:
+  - id: ST-001
+    name: bottom_crossover_AMMT
+    length_in: 10.0
+    od_in: 3.375
+    id_in: 1.375
+    material: "4140 HT"
+    function: "AMMT pin to plug fishing neck; pressure feed-through"
+  - id: ST-002
+    name: release_collet
+    length_in: 8.0
+    od_in: 3.375
+    material: "17-4 PH H900"
+    function: "Shear-pin release at 55 klbf + 0.5 in overtravel"
+  - id: ST-003
+    name: pressure_balance
+    length_in: 14.0
+    od_in: 3.625
+    material: "17-4 PH / 718"
+    function: "Hydrostatic compensation; 20 ksi bore isolation"
+  - id: ST-004
+    name: stroke_actuator
+    length_in: 54.0
+    od_in: 3.625
+    material: "17-4 PH H900"
+    function: "Ball screw linear drive; 12 in travel; 55 klbf push"
+    internal:
+      ball_screw_lead_in: 0.500
+      mandrel_od_in: 1.550
+      outer_sleeve_id_in: 2.900
+  - id: ST-005
+    name: load_cell_section
+    length_in: 10.0
+    od_in: 3.625
+    material: "17-4 PH"
+    function: "Axial force measurement under stroke load path"
+  - id: ST-006
+    name: motor_gearbox
+    length_in: 30.0
+    od_in: 3.625
+    material: "17-4 PH / 718"
+    function: "BLDC motor + planetary + ball screw rotation"
+  - id: ST-007
+    name: battery_housing
+    length_in: 84.0
+    od_in: 3.625
+    material: "Ti / 17-4 PH"
+    function: "Dual Li-primary modules; rig-safe non-explosive"
+  - id: ST-008
+    name: telemetry_cartridge
+    length_in: 22.0
+    od_in: 3.625
+    material: "17-4 PH"
+    function: "MCU, memory, sensors, wireline telemetry interface"
+  - id: ST-009
+    name: cable_head_CCL
+    length_in: 14.0
+    od_in: 3.625
+    material: "4140 HT"
+    function: "Wireline rope socket + CCL mandrel"
+
+stroke_budget_in:
+  stage3_iris: 4.0
+  seal_compression: 5.5
+  slip_set: 1.5
+  release_overtravel: 0.5
+  total_required: 11.5

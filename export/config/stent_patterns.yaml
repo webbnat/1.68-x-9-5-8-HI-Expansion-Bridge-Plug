@@ -1,0 +1,35 @@
+# Laser-cut expansion sleeve patterns — SHEX-008 / SHEX-009
+# Developed (flat) diamond mesh: cut at run-in, deploys to SET envelope.
+# Authority: DWG-009 / DWG-011, design_uhex_54in.yaml cascade
+
+defaults:
+  strut_width_in: 0.045
+  kerf_in: 0.008
+  end_margin_frac: 0.06
+  pattern: open_cell_diamond_out_of_phase  # Velocity-class topology
+
+SHEX-008:
+  part_no: SHEX-008
+  drawing: DWG-009
+  od_run_in: 1.688
+  id_run_in: 1.562
+  od_set_in: 3.375
+  id_set_in: 1.450
+  length_in: 4.000
+  cells_around: 12
+  rings: 6          # tuned: ~22% deploy foreshortening at 2× OD (was 8 — too dense)
+  wall_in: 0.035
+  actuator: internal_bladder
+
+SHEX-009:
+  part_no: SHEX-009
+  drawing: DWG-011
+  od_run_in: 1.688
+  id_run_in: 1.562
+  od_set_in: 5.750
+  id_set_in: 3.375
+  length_in: 5.000
+  cells_around: 14
+  rings: 4          # tuned: strut length reaches SET pitch at 3.4× OD (10 rings fails)
+  wall_in: 0.040
+  actuator: internal_belleville_wedge

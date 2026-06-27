@@ -1,0 +1,79 @@
+{
+  "package": "SHEX stage 1/2 actuators (SHEX-014/015/016)",
+  "parts": {
+    "SHEX-014A_gland_ring": {
+      "file": "D:\\letsseewhatthiscando\\export\\release\\step\\parts\\SHEX-014A_gland_ring.stp",
+      "elapsed_s": 0.0,
+      "material": "17-4 PH H1075",
+      "qty_per_plug": 4
+    },
+    "SHEX-014B_lock_ring": {
+      "file": "D:\\letsseewhatthiscando\\export\\release\\step\\parts\\SHEX-014B_lock_ring.stp",
+      "elapsed_s": 0.1,
+      "material": "17-4 PH H1075",
+      "qty_per_plug": 2
+    },
+    "SHEX-014C_charge_sub": {
+      "file": "D:\\letsseewhatthiscando\\export\\release\\step\\parts\\SHEX-014C_charge_sub.stp",
+      "elapsed_s": 0.0,
+      "material": "4140 HT + burst disk",
+      "qty_per_plug": 2
+    },
+    "SHEX-015B_belleville": {
+      "file": "D:\\letsseewhatthiscando\\export\\release\\step\\parts\\SHEX-015B_belleville.stp",
+      "elapsed_s": 0.0,
+      "material": "Inconel 718",
+      "qty_per_plug": 4
+    },
+    "SHEX-015C_belleville_housing": {
+      "file": "D:\\letsseewhatthiscando\\export\\release\\step\\parts\\SHEX-015C_belleville_housing.stp",
+      "elapsed_s": 0.0,
+      "material": "4140 HT",
+      "qty_per_plug": 1
+    },
+    "SHEX-016_charge_chamber": {
+      "file": "D:\\letsseewhatthiscando\\export\\release\\step\\parts\\SHEX-016_charge_chamber.stp",
+      "elapsed_s": 0.0,
+      "material": "4140 HT",
+      "qty_per_plug": 1
+    },
+    "SHEX-016A_pilot_piston": {
+      "file": "D:\\letsseewhatthiscando\\export\\release\\step\\parts\\SHEX-016A_pilot_piston.stp",
+      "elapsed_s": 0.0,
+      "material": "17-4 PH H1075",
+      "qty_per_plug": 1
+    },
+    "SHEX-017_sequence_sub": {
+      "file": "D:\\letsseewhatthiscando\\export\\release\\step\\parts\\SHEX-017_sequence_sub.stp",
+      "elapsed_s": 0.1,
+      "material": "4140 HT",
+      "qty_per_plug": 1
+    },
+    "SHEX-017A_arming_sleeve": {
+      "file": "D:\\letsseewhatthiscando\\export\\release\\step\\parts\\SHEX-017A_arming_sleeve.stp",
+      "elapsed_s": 0.0,
+      "material": "17-4 PH H1075",
+      "qty_per_plug": 1
+    },
+    "SHEX-017B_reference_piston": {
+      "file": "D:\\letsseewhatthiscando\\export\\release\\step\\parts\\SHEX-017B_reference_piston.stp",
+      "elapsed_s": 0.0,
+      "material": "17-4 PH H1075",
+      "qty_per_plug": 1
+    }
+  },
+  "assemblies": {
+    "run_in": {
+      "file": "D:\\letsseewhatthiscando\\export\\release\\step\\assemblies\\SHEX-ACT-S12_RUN_IN.stp",
+      "stl": "D:\\letsseewhatthiscando\\export\\release\\stl\\SHEX-ACT-S12_RUN_IN.stl",
+      "bodies": 23,
+      "elapsed_s": 17.3
+    },
+    "deployed": {
+      "file": "D:\\letsseewhatthiscando\\export\\release\\step\\assemblies\\SHEX-ACT-S12_DEPLOYED.stp",
+      "stl": "D:\\letsseewhatthiscando\\export\\release\\stl\\SHEX-ACT-S12_DEPLOYED.stl",
+      "bodies": 23,
+      "elapsed_s": 4.1
+    }
+  }
+}

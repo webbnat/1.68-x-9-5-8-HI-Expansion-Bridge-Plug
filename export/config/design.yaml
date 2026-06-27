@@ -1,0 +1,50 @@
+# Stent-Inspired High-Expansion Retrievable Bridge Plug (SHEX-BP)
+# Target: thru-tubing deployment, stent/catheter expansion mechanics
+
+tool:
+  name: SHEX-BP-169
+  variant_primary_od_in: 1.688      # 1.69" run-in OD
+  variant_alt_od_in: 2.125          # fallback for higher pressure rating
+  set_casing_in: 4.5
+  set_casing_id_in: 4.090           # 4.5", 11.6 lb/ft nominal ID
+  max_differential_psi_target: 3000
+  max_temperature_f: 300
+  conveyance: ["wireline", "slickline", "coiled_tubing"]
+
+# Stent geometry scaled from peripheral vascular stent (~6mm deployed)
+# to oilfield bridge plug (~4.09" deployed ID)
+stent:
+  pattern: zigzag_sinusoidal        # Bx Velocity / Cypher class
+  cells_around: 12
+  ring_count: 8
+  strut_width_in: 0.045
+  strut_thickness_in: 0.035
+  connector_style: sinusoidal
+  collapsed_id_in: 1.450            # crimped on mandrel
+  expanded_id_in: 4.050             # deployed against casing
+  axial_length_in: 3.25
+  material: "17-4 PH H900"
+  manufacturing: "laser_cut_tube + heat_treat + electropolish"
+
+expansion:
+  mechanism: hybrid_mechanical_bladder
+  # Catheter analog: inner mandrel + outer sheath during run-in
+  # Balloon analog: internal elastomer bladder pressurized by setting stroke
+  setting_stroke_in: 10.5
+  setting_force_klbf: 25
+  expansion_ratio: 2.79             # OD collapsed -> set diameter
+
+seal:
+  type: molded_hnbr_cup
+  axial_length_in: 1.75
+  backup_style: petal_metal         # Interwell HEX-inspired
+  petal_count: 8
+
+slips:
+  style: segmented_wedge
+  segment_count: 6
+  set_after_seal_compression: true  # TTS sequencing
+
+retrieval:
+  method: pull_to_release
+  fishing_neck: 1.375_ammt

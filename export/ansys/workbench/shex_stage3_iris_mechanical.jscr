@@ -1,0 +1,203 @@
+# -*- coding: utf-8 -*-
+# =============================================================================
+# SHEX Stage 3 Iris — ANSYS Mechanical Journal
+# =============================================================================
+# Runs inside Mechanical when Setup cell is opened/updated.
+# Configures: materials, mesh, 2-step static analysis, contacts, APDL snippets.
+#
+# Named selections expected (create in DesignModeler / Mechanical if using STEP):
+#   NS_MANDREL_TOP   — mandrel face for 4" deploy displacement
+#   NS_BORE_FACE     — inner bore for 5000 psi pressure (Step 2)
+#   NS_CASING_INNER  — casing target for frictional contact
+#   NS_SEGMENT_TOE   — iris segment outer toe contact source
+#
+# For External Model (INP) workflow: use APDL commands with node picking by
+# coordinate / component — see Command snippets below.
+# =============================================================================
+
+# Quantity is provided by Mechanical; fallback if import needed
+try:
+    from quantity import Quantity
+except ImportError:
+    pass
+Geo = Model.Geometry
+Mesh = Model.Mesh
+Analysis = Model.Analyses[0]
+AnalysisSettings = Analysis.AnalysisSettings
+
+EXPORT_ROOT = r"D:\letsseewhatthiscando\export\ansys"
+APDL_MAT = EXPORT_ROOT.replace("\\", "/") + "/apdl/mat_SHEX.apdl"
+
+ExtAPI.Log.WriteMessage("SHEX Mechanical journal starting...")
+
+# --- Units: mm, MPa (Workbench typically N, mm, MPa when metric) ---
+# 28.5 Msi = 196500 MPa?  No: 28.5e6 psi * 0.00689476 = 196500 MPa - wrong
+# 28.5e6 psi = 196500 N/mm2? 1 psi = 0.006895 MPa, so 28.5e6 * 0.006895 = 196458 MPa
+# In mm-N-MPa system: E = 196000 MPa for 17-4 PH
+
+def _ensure_material(name, E_MPa, nu, yield_MPa=None):
+    mats = Model.Materials
+    for m in mats.GetChildren(DataModelObjectCategory.Material, True):
+        if m.Name == name:
+            return m
+    mat = mats.AddMaterial()
+    mat.Name = name
+    el = mat.PropertyByName("Elasticity")
+    el.VariableByName("Young's Modulus").SingleValue = Quantity(E_MPa, "MPa")
+    el.VariableByName("Poisson's Ratio").SingleValue = nu
+    if yield_MPa is not None:
+        pl = mat.PropertyByName("Isotropic Hardening")
+        pl.VariableByName("Yield Strength").SingleValue = Quantity(yield_MPa, "MPa")
+    return mat
+
+_ensure_material("17-4 PH H900", 196000, 0.27, 1103)
+_ensure_material("P110 Casing", 206800, 0.30)
+_ensure_material("Inconel 718", 200000, 0.29, 1034)
+
+# Assign 17-4 PH to all bodies (override per-body in GUI if multi-body)
+for body in Geo.GetChildren(DataModelObjectCategory.Body, True):
+    try:
+        body.Material = "17-4 PH H900"
+    except Exception:
+        pass
+
+# --- Mesh ---
+Mesh.ElementOrder = ElementOrder.Quadratic
+Mesh.ElementSize = Quantity(2.0, "mm")
+try:
+    Mesh.UseAdaptiveSizing = False
+except Exception:
+    pass
+
+# Refinement at root (if Named Selection exists)
+for ns_name in ["NS_ROOT_FILLET", "NS_SEGMENT_ROOT"]:
+    try:
+        ns = Model.NamedSelections.GetChildren(
+            DataModelObjectCategory.NamedSelection, True)
+        for n in ns:
+            if n.Name == ns_name:
+                sf = Mesh.AddSizing()
+                sf.Location = n
+                sf.ElementSize = Quantity(0.8, "mm")
+                sf.Type = SizingType.SphereOfInfluence
+    except Exception:
+        pass
+
+# --- Analysis: 2 steps, large deflection ---
+AnalysisSettings.NumberOfSteps = 2
+AnalysisSettings.LargeDeflection = True
+AnalysisSettings.StepEndTime = Quantity(1.0, "s")
+AnalysisSettings.SetAutomaticTimeStepping(1, AutomaticTimeStepping.Off)
+AnalysisSettings.SetAutomaticTimeStepping(2, AutomaticTimeStepping.Off)
+
+# Step 1: iris deploy | Step 2: pressure hold
+try:
+    AnalysisSettings.SetStepEndTime(1, Quantity(1.0, "s"))
+    AnalysisSettings.SetStepEndTime(2, Quantity(2.0, "s"))
+except Exception:
+    pass
+
+# --- Frictional contact (if multiple bodies / casing imported) ---
+try:
+    connections = Model.Connections
+    for child in connections.GetChildren(DataModelObjectCategory.ConnectionGroup, True):
+        pass
+    # Auto-detect contact regions if bodies present
+    connections.CreateAutomaticConnections()
+    for contact in connections.GetChildren(DataModelObjectCategory.Connection, True):
+        try:
+            if contact.ContactType is not None:
+                contact.ContactType = ContactType.Frictional
+                contact.FrictionCoefficient = 0.12
+        except Exception:
+            pass
+except Exception as e:
+    ExtAPI.Log.WriteMessage("Contact auto-setup note: " + str(e))
+
+# --- APDL: materials from project apdl file ---
+cmd_prep = Analysis.AddCommandObject()
+cmd_prep.Name = "SHEX APDL Materials"
+cmd_prep.ScopingMethod = GeometryDefineByType.All
+cmd_prep.Location = "Before Solution"
+cmd_prep.Input = "/INPF,'" + APDL_MAT + "'\nETCONTROL,ALL,1\n"
+
+# --- Step 1: Deploy displacement 4.0 in = 101.6 mm ---
+cmd_step1 = Analysis.AddCommandObject()
+cmd_step1.Name = "SHEX Step1 Deploy 4in"
+cmd_step1.Location = "Before Solution"
+cmd_step1.Input = """
+! STEP 1 — Stage 3 iris deploy (4.0 in / 101.6 mm axial on mandrel)
+TIME,1.0
+NSUBST,10,50,5
+AUTOTS,OFF
+NLGEOM,ON
+
+! Option A: Named selection NS_MANDREL_TOP (create in DM)
+! NSEL,S,COMPONENT,,NS_MANDREL_TOP
+! D,ALL,UZ,101.6
+
+! Option B: Coordinate pick — top face of mandrel Z > 1300 mm (adjust after import)
+! NSEL,S,LOC,Z,1300,9999
+! D,ALL,UZ,101.6
+! ALLSEL
+
+! Casing fixed for deploy step
+! NSEL,S,COMPONENT,,NS_CASING_INNER
+! D,ALL,UX,0
+! D,ALL,UY,0
+! D,ALL,UZ,0
+! ALLSEL
+
+FINISH
+/SOLU
+"""
+
+# --- Step 2: 5000 psi bore pressure ---
+cmd_step2 = Analysis.AddCommandObject()
+cmd_step2.Name = "SHEX Step2 Pressure 5000psi"
+cmd_step2.Location = "Before Solution"
+cmd_step2.Input = """
+! STEP 2 — 5000 psi differential on bore (34.47 MPa)
+TIME,2.0
+NSUBST,20,100,10
+
+! SF,ALL,PRES,-34.47   ! MPa on bore ( inward )
+! Or named selection:
+! SFA,NS_BORE_FACE,1,PRES,-34.47
+
+FINISH
+/SOLU
+"""
+
+# --- Displacement BC if Named Selection NS_MANDREL_TOP exists ---
+try:
+    for n in Model.NamedSelections.GetChildren(DataModelObjectCategory.NamedSelection, True):
+        if n.Name == "NS_MANDREL_TOP":
+            disp = Analysis.AddDisplacement()
+            disp.Location = n
+            disp.DefineBy = LoadDefineBy.Components
+            disp.ZComponent.Output.SetDiscreteValue(0, Quantity(101.6, "mm"))
+            break
+except Exception:
+    pass
+
+# --- Pressure on bore NS if exists ---
+try:
+    bore_ns = None
+    for n in Model.NamedSelections.GetChildren(DataModelObjectCategory.NamedSelection, True):
+        if n.Name == "NS_BORE_FACE":
+            bore_ns = n
+            break
+    if bore_ns:
+        pres = Analysis.AddPressure()
+        pres.Location = bore_ns
+        pres.Magnitude.Output.SetDiscreteValue(0, Quantity(34.47, "MPa"))
+        pres.StepNumber = 2
+except Exception:
+    pass
+
+ExtAPI.Log.WriteMessage("SHEX Mechanical journal complete.")
+ExtAPI.Log.WriteMessage("Review Command Objects for NS/ coordinate picks before Solve.")
+
+# Optional batch solve (uncomment for fully unattended run):
+# Analysis.Solve(True)

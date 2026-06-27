@@ -1,0 +1,117 @@
+# -*- coding: utf-8 -*-
+# =============================================================================
+# SHEX-BP-UHEX-54  |  Stage 3 Iris FEA  |  ANSYS Workbench Journal
+# =============================================================================
+#
+# RUN (batch):
+#   "C:\Program Files\ANSYS Inc\v242\Framework\bin\Win64\runwb2.exe" -B -R shex_stage3_iris.wbjn
+#
+# RUN (interactive — opens Workbench GUI):
+#   runwb2 -R shex_stage3_iris.wbjn
+#
+# Edit EXPORT_ROOT below if your project path differs.
+# =============================================================================
+
+import os
+
+EXPORT_ROOT = r"D:\letsseewhatthiscando\export\ansys"
+WORKBENCH_DIR = os.path.join(EXPORT_ROOT, "workbench")
+
+# Fallback: search relative to current working directory
+if not os.path.isdir(EXPORT_ROOT):
+    _alt = os.path.join(os.getcwd(), "export", "ansys")
+    if os.path.isdir(_alt):
+        EXPORT_ROOT = _alt
+        WORKBENCH_DIR = os.path.join(EXPORT_ROOT, "workbench")
+
+MESH_INP = os.path.join(EXPORT_ROOT, "mesh", "iris_segment_solid_mm.inp")
+STEP_IRIS = os.path.join(EXPORT_ROOT, "step", "iris_segment_production_mm.stp")
+STEP_CASING = os.path.join(EXPORT_ROOT, "step", "casing_9625_40_drift_mm.stp")
+MECH_JOURNAL = os.path.join(WORKBENCH_DIR, "shex_stage3_iris_mechanical.jscr")
+MATERIALS_XML = os.path.join(WORKBENCH_DIR, "shex_materials.xml")
+
+# Set Workbench default unit system to MKS (mm, N, MPa) — mesh/STEP in mm
+SetScriptVersion(Version="21.1.153")
+
+# -----------------------------------------------------------------------------
+# USER OPTION: set USE_EXTERNAL_MODEL = True for pre-meshed INP (fastest)
+#               set USE_EXTERNAL_MODEL = False for STEP geometry import
+# -----------------------------------------------------------------------------
+USE_EXTERNAL_MODEL = True
+
+Reset()
+ExtAPI.Log.WriteMessage("SHEX Stage3 Iris journal — EXPORT_ROOT: " + EXPORT_ROOT)
+
+if USE_EXTERNAL_MODEL:
+    if not os.path.isfile(MESH_INP):
+        raise IOError("Missing mesh file: " + MESH_INP)
+
+    # --- External Model system (Abaqus INP import) ---
+    extTemplate = GetTemplate(TemplateName="External Model", Solver="ANSYS")
+    extSystem = extTemplate.CreateSystem(Name="SHEX External Model")
+
+    extModel = extSystem.GetContainer(ComponentName="Model")
+    extModel.SetFile(FilePath=MESH_INP)
+    extModel.Update()
+
+    # --- Static Structural linked to External Model ---
+    staticTemplate = GetTemplate(TemplateName="Static Structural", Solver="ANSYS")
+    staticSystem = staticTemplate.CreateSystem(Name="SHEX Stage3 Iris FEA")
+
+    extModelOut = extSystem.GetComponent(Name="Model")
+    staticModelIn = staticSystem.GetComponent(Name="Model")
+    extModelOut.ConnectTo(staticModelIn)
+
+    staticModel = staticSystem.GetContainer(ComponentName="Model")
+    staticModel.Update()
+
+else:
+    if not os.path.isfile(STEP_IRIS):
+        raise IOError("Missing STEP file: " + STEP_IRIS)
+
+    # --- Static Structural with STEP geometry ---
+    staticTemplate = GetTemplate(TemplateName="Static Structural", Solver="ANSYS")
+    staticSystem = staticTemplate.CreateSystem(Name="SHEX Stage3 Iris FEA (STEP)")
+
+    geometry = staticSystem.GetContainer(ComponentName="Geometry")
+    geometry.SetFile(FilePath=STEP_IRIS)
+    geometry.Update()
+
+    staticModel = staticSystem.GetContainer(ComponentName="Model")
+    staticModel.Update()
+
+# --- Import shared engineering materials (if file exists) ---
+try:
+    ed = staticSystem.GetContainer(ComponentName="Engineering Data")
+    if os.path.isfile(MATERIALS_XML):
+        ed.Import(MaterialFile=MATERIALS_XML)
+        ExtAPI.Log.WriteMessage("Imported materials: " + MATERIALS_XML)
+except Exception as e:
+    ExtAPI.Log.WriteMessage("Engineering Data import skipped: " + str(e))
+
+# --- Attach Mechanical journal to run on Setup edit ---
+setup = staticSystem.GetContainer(ComponentName="Setup")
+try:
+    setupProperties = setup.Properties
+    if setupProperties.HasPropertyByName("ScriptFile"):
+        setupProperties.GetPropertyByName("ScriptFile").SetValue(MECH_JOURNAL)
+except Exception:
+    pass
+
+ExtAPI.Log.WriteMessage("Workbench project created.")
+ExtAPI.Log.WriteMessage("Next: double-click Setup to run Mechanical journal, or batch with -B flag.")
+ExtAPI.Log.WriteMessage("Mechanical journal: " + MECH_JOURNAL)
+
+# Batch mode: open Mechanical, run journal, update
+try:
+    setup.Update()
+except Exception as e:
+    ExtAPI.Log.WriteMessage("Setup update (batch solve) note: " + str(e))
+
+# Save project beside export package
+project_path = os.path.join(WORKBENCH_DIR, "SHEX_Stage3_Iris")
+try:
+    Save(Overwrite=True, FilePath=project_path + ".wbpj")
+    ExtAPI.Log.WriteMessage("Saved: " + project_path + ".wbpj")
+except Exception as e:
+    ExtAPI.Log.WriteMessage("Save note: " + str(e))

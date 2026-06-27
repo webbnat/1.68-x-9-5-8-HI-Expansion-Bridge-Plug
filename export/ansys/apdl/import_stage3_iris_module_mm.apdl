@@ -1,0 +1,7 @@
+! Import mesh from Abaqus INP format
+! ANSYS Workbench: External Model > Abaqus > stage3_iris_module_mm.inp
+! MAPDL alternative:
+! /AUX15
+! ABAQUS,D:/letsseewhatthiscando/export/ansys/mesh/stage3_iris_module_mm.inp
+
+! Or use CDREAD after converting via /INPUT in WB External Model component

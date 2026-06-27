@@ -1,0 +1,31 @@
+Seq,Part No,Description,Tier,Drawing No,STEP file,Schematic DXF,Fusion action,Status,Priority
+01,SHEX-012,Fishing neck / top sub,MANUFACTURING,DWG-010-SHP,export/cad/parts/SHEX-012_fishing_neck.stp,DWG-010_fishing_neck.dxf,Model Rev D → shop drawing @ OD 1.688 max,SHOP READY,1
+02,SHEX-013,Bottom equalizing sub,MANUFACTURING,DWG-013-SHP,export/cad/parts/SHEX-013_bottom_equalizing_sub.stp,—,DEFERRED — iris stack first,PENDING,4
+03,SHEX-011A,Mandrel tail sleeve,MANUFACTURING,DWG-011A-SHP,export/cad/parts/SHEX-011_mandrel_tail_sleeve.stp,part_specs/SHEX-011A_mandrel_tail_sleeve.md,Import STEP → shop drawing,PENDING,1
+04,SHEX-011,Inner mandrel (full),MANUFACTURING,DWG-011B-SHP,export/cad/parts/SHEX-011_inner_mandrel.stp,part_specs/SHEX-011_inner_mandrel.md,Steps 1–22 + thread; all OD ≤ 1.688,SHOP READY,1
+05,SHEX-002,Helix guide,MANUFACTURING,DWG-002A-SHP,—,DWG-002_iris_module_assy.dxf,part_specs/SHEX-002_helix_guide.md — iris stack order 2,IN PROGRESS,1
+06,SHEX-010,Stage 3 iris support sleeve,MANUFACTURING,DWG-012-SHP,export/cad/parts/SHEX-010_stage3_support.stp,DWG-012_stage3_iris_support_sleeve.dxf,part_specs/SHEX-010_support_sleeve.md — OD 1.688 order 1,IN PROGRESS,1
+07,SHEX-001,Iris segment (×16),MANUFACTURING,DWG-001-SHP,export/cad/parts/SHEX-001_iris_segment.stp,DWG-001_iris_segment.dxf,part_specs/SHEX-001_iris_segment.md — iris stack order 3,IN PROGRESS,1
+08,—,Stage 3 iris module assy,SET-ILLUSTRATION,DWG-002-SET,—,DWG-002_iris_module_assy.dxf,Virtual assy — deployed OD 8.650; references -SHP parts,PENDING,2
+09,SHEX-003,MTM ring segment (×12),MANUFACTURING,DWG-005-SHP,—,DWG-005_mtm_ring_segment.dxf,Segment arc shop drawing — not full 8.80 ring OD,PENDING,3
+10,SHEX-006,Upper slip segment (×8),MANUFACTURING,DWG-008A-SHP,—,DWG-008_slip_segment.dxf,One wedge shop drawing,PENDING,3
+11,SHEX-007,Lower slip segment (×8),MANUFACTURING,DWG-008B-SHP,—,DWG-008_slip_segment.dxf,One wedge shop drawing,PENDING,3
+12,SHEX-005,Petal backup (×64),MANUFACTURING,DWG-007A-SHP,—,DWG-007_seal_land_module.dxf,part_specs/SHEX-005_petal_backup.md — build_SHEX_005_petal_backup,IN PROGRESS,3
+13,SHEX-004,HNBR seal land (×4),MANUFACTURING,DWG-007B-SHP,—,DWG-007_seal_land_module.dxf,part_specs/SHEX-004_hnbr_seal_land.md — build_SHEX_004_hnbr_seal_land,IN PROGRESS,4
+14,SHEX-008,Stage 1 stent sleeve,MANUFACTURING,DWG-009-SHP,export/cad/parts/SHEX-008_stage1.stp,DWG-009_stage1_stent_sleeve.dxf,Laser flat pattern — crimped to 1.688 run-in,PENDING,4
+15,SHEX-009,Stage 2 stent sleeve,MANUFACTURING,DWG-011-SHP,export/cad/parts/SHEX-009_stage2.stp,DWG-011_stage2_stent_sleeve.dxf,Laser flat pattern — crimped to 1.688 run-in,PENDING,4
+16,SHEX-014,Expansion bladder,MANUFACTURING,—,—,—,Vendor / mold spec only,PENDING,5
+17,SHEX-015,Belleville stack,MANUFACTURING,—,—,—,Vendor stack spec only,PENDING,5
+18,—,Plug assembly GA,SET-ILLUSTRATION,DWG-003-SET,export/cad/step/plug_set_assembly.stp,DWG-003_plug_54in_GA.dxf,Full plug set condition — not for machining,PENDING,5
+19,—,Plug run-in vs set,SET-ILLUSTRATION,DWG-006-SET,export/cad/step/plug_run_in_assembly.stp,DWG-006_prototype_whole_tool_detailed.dxf,Comparison / training illustration,PENDING,5
+20,ST-001,Setting tool crossover,MANUFACTURING,DWG-ST-001-SHP,export/cad/parts/setting_tool/ST_crossover.stp,ST-DWG-001,Shop drawing,PENDING,2
+21,ST-002,Release collet,MANUFACTURING,DWG-ST-002-SHP,export/cad/parts/setting_tool/ST_release.stp,ST-DWG-002,Shop drawing,PENDING,2
+22,ST-003,Pressure balance,MANUFACTURING,DWG-ST-003-SHP,export/cad/parts/setting_tool/ST_pressure.stp,ST-DWG-003,Shop drawing,PENDING,2
+23,ST-004,Stroke actuator,MANUFACTURING,DWG-ST-004-SHP,export/cad/parts/setting_tool/ST_stroke.stp,ST-DWG-004,Shop drawing,PENDING,1
+24,ST-005,Load cell section,MANUFACTURING,DWG-ST-005-SHP,export/cad/parts/setting_tool/ST_loadcell.stp,ST-DWG-005,Shop drawing,PENDING,3
+25,ST-006,Motor / gearbox,MANUFACTURING,DWG-ST-006-SHP,export/cad/parts/setting_tool/ST_motor.stp,ST-DWG-006,Shop drawing,PENDING,3
+26,ST-007,Battery housing,MANUFACTURING,DWG-ST-007-SHP,export/cad/parts/setting_tool/ST_battery.stp,ST-DWG-007,Shop drawing,PENDING,3
+27,ST-008,Telemetry cartridge,MANUFACTURING,DWG-ST-008-SHP,export/cad/parts/setting_tool/ST_telemetry.stp,ST-DWG-008,Shop drawing,PENDING,3
+28,ST-009,Cable head / CCL,MANUFACTURING,DWG-ST-009-SHP,export/cad/parts/setting_tool/ST_head.stp,ST-DWG-009,Shop drawing,PENDING,2
+29,ST-010,Inner stroke mandrel,MANUFACTURING,DWG-ST-010-SHP,export/cad/parts/setting_tool/ST_inner_stroke_mandrel.stp,ST-DWG-010,Shop drawing,PENDING,1
+30,—,Setting tool assembly GA,SET-ILLUSTRATION,DWG-004-SET,export/cad/step/setting_tool_SHEX-ST-54.stp,DWG-004_setting_tool_SHEX-ST-54.dxf,Tool layout illustration,PENDING,5

@@ -1,0 +1,10 @@
+! Import solid tet mesh - iris segment (9972 nodes, ~51k tets)
+! ANSYS Workbench: External Model component -> Abaqus Input File
+!   File: mesh/iris_segment_solid_mm.inp
+!
+! MAPDL: use Workbench External Model (recommended for large meshes)
+!
+! After import:
+!   /PREP7
+!   /INPUT,mat_SHEX,apdl
+!   MPLOT

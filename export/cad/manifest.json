@@ -1,0 +1,74 @@
+{
+  "assemblies": [
+    {
+      "file": "D:\\letsseewhatthiscando\\export\\cad\\step\\plug_set_assembly.stp",
+      "bodies": 15,
+      "names": [
+        "SHEX-011_inner_mandrel",
+        "SHEX-011_mandrel_tail_sleeve",
+        "SHEX-013_bottom_equalizing_sub",
+        "SHEX-007_lower_slip_cartridge",
+        "SHEX-008_stage1_stent_sleeve",
+        "SHEX-009_stage2_stent_sleeve",
+        "SHEX-010_stage3_iris_support_sleeve",
+        "SHEX-001_iris_segment_x16",
+        "SHEX-004_seal_land_1",
+        "SHEX-004_seal_land_2",
+        "SHEX-004_seal_land_3",
+        "SHEX-004_seal_land_4",
+        "SHEX-003_upper_mtm_stack",
+        "SHEX-006_upper_slip_cartridge",
+        "SHEX-012_fishing_neck"
+      ]
+    },
+    {
+      "file": "D:\\letsseewhatthiscando\\export\\cad\\step\\plug_run_in_assembly.stp",
+      "bodies": 14,
+      "names": [
+        "SHEX-011_inner_mandrel",
+        "run_in_mandrel_tail_0.0",
+        "run_in_bottom_sub_3.0",
+        "run_in_lower_slips_5.0",
+        "run_in_stage1_9.5",
+        "run_in_stage2_13.5",
+        "run_in_stage3_iris_18.5",
+        "run_in_seal_land_26.0",
+        "run_in_seal_land_30.5",
+        "run_in_seal_land_35.0",
+        "run_in_seal_land_39.5",
+        "run_in_upper_mtm_44.0",
+        "run_in_upper_slips_46.5",
+        "run_in_fishing_neck_51.0"
+      ]
+    },
+    {
+      "file": "D:\\letsseewhatthiscando\\export\\cad\\step\\setting_tool_SHEX-ST-54.stp",
+      "bodies": 10,
+      "names": [
+        "ST_crossover",
+        "ST_release",
+        "ST_pressure",
+        "ST_stroke",
+        "ST_loadcell",
+        "ST_motor",
+        "ST_battery",
+        "ST_telemetry",
+        "ST_head",
+        "ST_inner_stroke_mandrel"
+      ]
+    }
+  ],
+  "parts": [
+    "D:\\letsseewhatthiscando\\export\\cad\\parts\\SHEX-011_inner_mandrel.stp",
+    "D:\\letsseewhatthiscando\\export\\cad\\parts\\SHEX-001_iris_segment.stp",
+    "D:\\letsseewhatthiscando\\export\\cad\\parts\\SHEX-001_iris_ring_16seg.stp",
+    "D:\\letsseewhatthiscando\\export\\cad\\parts\\SHEX-008_stage1.stp",
+    "D:\\letsseewhatthiscando\\export\\cad\\parts\\SHEX-009_stage2.stp",
+    "D:\\letsseewhatthiscando\\export\\cad\\parts\\SHEX-010_stage3_support.stp",
+    "D:\\letsseewhatthiscando\\export\\cad\\parts\\SHEX-012_fishing_neck.stp",
+    "D:\\letsseewhatthiscando\\export\\cad\\parts\\SHEX-013_bottom_equalizing_sub.stp",
+    "D:\\letsseewhatthiscando\\export\\cad\\parts\\SHEX-011_mandrel_tail_sleeve.stp"
+  ],
+  "plug_length_in": 54.0,
+  "setting_tool_length_in": 246.0
+}

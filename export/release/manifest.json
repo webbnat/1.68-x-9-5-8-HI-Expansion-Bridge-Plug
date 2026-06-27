@@ -1,0 +1,109 @@
+{
+  "tool": "SHEX-BP-UHEX-54",
+  "parts": {
+    "SHEX-001_iris_segment": {
+      "file": "export\\release\\step\\parts\\SHEX-001_iris_segment.stp",
+      "elapsed_s": 0.0,
+      "material": "17-4 PH H900 (H1150M)",
+      "qty_per_plug": 16
+    },
+    "SHEX-002_helix_guide": {
+      "file": "export\\release\\step\\parts\\SHEX-002_helix_guide.stp",
+      "elapsed_s": 1.3,
+      "material": "Inconel 718 (AMS 5662)",
+      "qty_per_plug": 1
+    },
+    "SHEX-003_mtm_ring_segment": {
+      "file": "export\\release\\step\\parts\\SHEX-003_mtm_ring_segment.stp",
+      "elapsed_s": 0.0,
+      "material": "17-4 PH H900",
+      "qty_per_plug": 12
+    },
+    "SHEX-004_hnbr_seal_preform": {
+      "file": "export\\release\\step\\parts\\SHEX-004_hnbr_seal_preform.stp",
+      "elapsed_s": 0.0,
+      "material": "HNBR 90A",
+      "qty_per_plug": 4
+    },
+    "SHEX-005_petal_backup": {
+      "file": "export\\release\\step\\parts\\SHEX-005_petal_backup.stp",
+      "elapsed_s": 0.0,
+      "material": "17-4 PH H900",
+      "qty_per_plug": 64
+    },
+    "SHEX-006_upper_slip_segment": {
+      "file": "export\\release\\step\\parts\\SHEX-006_upper_slip_segment.stp",
+      "elapsed_s": 0.0,
+      "material": "17-4 PH H900, teeth case hardened",
+      "qty_per_plug": 8
+    },
+    "SHEX-007_lower_slip_segment": {
+      "file": "export\\release\\step\\parts\\SHEX-007_lower_slip_segment.stp",
+      "elapsed_s": 0.0,
+      "material": "17-4 PH H900, teeth case hardened",
+      "qty_per_plug": 8
+    },
+    "SHEX-008_stage1_stent_runin": {
+      "file": "export\\release\\step\\parts\\SHEX-008_stage1_stent_runin.stp",
+      "elapsed_s": 0.6,
+      "material": "17-4 PH H900",
+      "qty_per_plug": 1
+    },
+    "SHEX-009_stage2_stent_runin": {
+      "file": "export\\release\\step\\parts\\SHEX-009_stage2_stent_runin.stp",
+      "elapsed_s": 0.4,
+      "material": "17-4 PH H900",
+      "qty_per_plug": 1
+    },
+    "SHEX-010_support_sleeve": {
+      "file": "export\\release\\step\\parts\\SHEX-010_support_sleeve.stp",
+      "elapsed_s": 0.2,
+      "material": "17-4 PH H900",
+      "qty_per_plug": 1
+    },
+    "SHEX-011_inner_mandrel": {
+      "file": "export\\release\\step\\parts\\SHEX-011_inner_mandrel.stp",
+      "elapsed_s": 1.1,
+      "material": "17-4 PH H900",
+      "qty_per_plug": 1
+    },
+    "SHEX-011A_mandrel_tail_sleeve": {
+      "file": "export\\release\\step\\parts\\SHEX-011A_mandrel_tail_sleeve.stp",
+      "elapsed_s": 0.0,
+      "material": "4140 HT 28-32 HRC",
+      "qty_per_plug": 1
+    },
+    "SHEX-012_fishing_neck": {
+      "file": "export\\release\\step\\parts\\SHEX-012_fishing_neck.stp",
+      "elapsed_s": 0.0,
+      "material": "4140 HT 28-32 HRC",
+      "qty_per_plug": 1
+    },
+    "SHEX-013_equalizing_sub_body": {
+      "file": "export\\release\\step\\parts\\SHEX-013_equalizing_sub_body.stp",
+      "elapsed_s": 0.1,
+      "material": "4140 HT 28-32 HRC",
+      "qty_per_plug": 1
+    },
+    "SHEX-013S_sliding_sleeve": {
+      "file": "export\\release\\step\\parts\\SHEX-013S_sliding_sleeve.stp",
+      "elapsed_s": 0.1,
+      "material": "4140 HT 28-32 HRC",
+      "qty_per_plug": 1
+    }
+  },
+  "assemblies": {
+    "run_in": {
+      "file": "export\\release\\step\\assemblies\\SHEX-BP-UHEX-54_RUN-IN.stp",
+      "stl": "export\\release\\stl\\SHEX-BP-UHEX-54_RUN-IN.stl",
+      "bodies": 27,
+      "elapsed_s": 16.9
+    },
+    "set": {
+      "file": "export\\release\\step\\assemblies\\SHEX-BP-UHEX-54_SET.stp",
+      "stl": "export\\release\\stl\\SHEX-BP-UHEX-54_SET.stl",
+      "bodies": 28,
+      "elapsed_s": 33.9
+    }
+  }
+}

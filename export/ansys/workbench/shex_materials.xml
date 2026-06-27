@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Import in Workbench: Engineering Data > Import > shex_materials.xml -->
+<EngineeringData version="1.0">
+  <Materials>
+    <Material>
+      <Name>17-4 PH H900</Name>
+      <PropertyData name="Elasticity">
+        <Data format="string">-</Data>
+        <ParameterValue parameter="Young's Modulus" format="float">196500000000</ParameterValue>
+        <ParameterValue parameter="Poisson's Ratio" format="float">0.27</ParameterValue>
+      </PropertyData>
+      <PropertyData name="Density">
+        <ParameterValue parameter="Density" format="float">7800</ParameterValue>
+      </PropertyData>
+      <PropertyData name="Isotropic Hardening">
+        <ParameterValue parameter="Yield Strength" format="float">1103000000</ParameterValue>
+        <ParameterValue parameter="Tangent Modulus" format="float">13100000000</ParameterValue>
+      </PropertyData>
+    </Material>
+    <Material>
+      <Name>P110 Casing</Name>
+      <PropertyData name="Elasticity">
+        <ParameterValue parameter="Young's Modulus" format="float">206800000000</ParameterValue>
+        <ParameterValue parameter="Poisson's Ratio" format="float">0.30</ParameterValue>
+      </PropertyData>
+    </Material>
+    <Material>
+      <Name>Inconel 718</Name>
+      <PropertyData name="Elasticity">
+        <ParameterValue parameter="Young's Modulus" format="float">200000000000</ParameterValue>
+        <ParameterValue parameter="Poisson's Ratio" format="float">0.29</ParameterValue>
+      </PropertyData>
+    </Material>
+  </Materials>
+</EngineeringData>

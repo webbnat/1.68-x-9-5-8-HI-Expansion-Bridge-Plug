@@ -1,0 +1,60 @@
+{
+  "hydrostatic_window": [
+    {
+      "tvd_ft": 1000,
+      "hydrostatic_psi": 468
+    },
+    {
+      "tvd_ft": 2000,
+      "hydrostatic_psi": 936
+    },
+    {
+      "tvd_ft": 3000,
+      "hydrostatic_psi": 1404
+    },
+    {
+      "tvd_ft": 5000,
+      "hydrostatic_psi": 2340
+    },
+    {
+      "tvd_ft": 8000,
+      "hydrostatic_psi": 3744
+    },
+    {
+      "tvd_ft": 12000,
+      "hydrostatic_psi": 5616
+    }
+  ],
+  "principle": "separate energy / initiation / sequencing (DCN-12)",
+  "ct_initiation_margin_psi": 1500.0,
+  "stage1to2_arming_shift_psi": 1720,
+  "pilot_area_in2": 0.866,
+  "pilot_force_at_470psi_lbf": 407,
+  "fail_safe_states": [
+    {
+      "state": "Gate never opened",
+      "condition": "collapsed OD 1.688",
+      "action": "normal POOH; nothing fired"
+    },
+    {
+      "state": "Gate open, EQ closed only",
+      "condition": "OD 1.688, ports shut",
+      "action": "pull to re-open EQ via shift profile; fish on mandrel"
+    },
+    {
+      "state": "Stage 1 only",
+      "condition": "OD 3.375, not anchored",
+      "action": "recoverable on mandrel; EQ re-open on pull"
+    },
+    {
+      "state": "Stages 1+2 complete",
+      "condition": "OD 5.750, locked open",
+      "action": "proceed to secondary (tool) stroke"
+    },
+    {
+      "state": "Full set",
+      "condition": "OD 8.65 / seals / slips",
+      "action": "tool shears free; plug holds"
+    }
+  ]
+}

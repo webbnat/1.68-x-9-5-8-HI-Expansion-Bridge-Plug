@@ -1,0 +1,39 @@
+{
+  "step": [
+    "D:\\letsseewhatthiscando\\export\\ansys\\step\\iris_segment_production_mm.stp",
+    "D:\\letsseewhatthiscando\\export\\ansys\\step\\mtm_ring_segment_mm.stp",
+    "D:\\letsseewhatthiscando\\export\\ansys\\step\\mandrel_54in_mm.stp",
+    "D:\\letsseewhatthiscando\\export\\ansys\\step\\casing_9625_40_drift_mm.stp"
+  ],
+  "mesh": [
+    {
+      "msh": "D:\\letsseewhatthiscando\\export\\ansys\\mesh\\iris_segment_solid_mm.msh",
+      "inp": null,
+      "nodes": 9972,
+      "elements": 57975,
+      "type": "solid_tet"
+    },
+    {
+      "msh": "D:\\letsseewhatthiscando\\export\\ansys\\mesh\\stage3_iris_module_mm.msh",
+      "inp": "D:\\letsseewhatthiscando\\export\\ansys\\mesh\\stage3_iris_module_mm.inp",
+      "nodes": 677,
+      "elements": 1280
+    },
+    {
+      "msh": "D:\\letsseewhatthiscando\\export\\ansys\\mesh\\plug_uhex_54_assembly_mm.msh",
+      "inp": "D:\\letsseewhatthiscando\\export\\ansys\\mesh\\plug_uhex_54_assembly_mm.inp",
+      "nodes": 1838,
+      "elements": 4416
+    },
+    {
+      "msh": "D:\\letsseewhatthiscando\\export\\ansys\\mesh\\iris_single_segment_mm.msh",
+      "inp": "D:\\letsseewhatthiscando\\export\\ansys\\mesh\\iris_single_segment_mm.inp",
+      "nodes": 8,
+      "elements": 12
+    }
+  ],
+  "apdl": [
+    "D:\\letsseewhatthiscando\\export\\ansys\\apdl\\mat_SHEX.apdl",
+    "D:\\letsseewhatthiscando\\export\\ansys\\apdl\\stage3_iris_fea.apdl"
+  ]
+}

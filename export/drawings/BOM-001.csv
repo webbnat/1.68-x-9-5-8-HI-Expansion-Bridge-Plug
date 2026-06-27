@@ -1,0 +1,17 @@
+Item,Part No,Description,Material,Qty,Notes
+1,SHEX-001,Iris segment,17-4 PH H900,16,"DWG-001, t=0.187"
+2,SHEX-002,Helix guide mandrel,Inconel 718,1,Double-start 4in lead
+3,SHEX-003,MTM ring segment,17-4 PH H900,12,DWG-005
+4,SHEX-004,HNBR seal land,HNBR 90 duro,4,"DWG-007, 4.5in axial each"
+5,SHEX-005,Petal backup,17-4 PH,64,"DWG-007, 16 per seal land"
+6,SHEX-006,Upper slip segment,17-4 PH,8,"DWG-008, 9-5/8 casing"
+7,SHEX-007,Lower slip segment,17-4 PH,8,"DWG-008, 9-5/8 casing"
+8,SHEX-008,Stage 1 stent sleeve,17-4 PH,1,"DWG-009, laser cut"
+9,SHEX-009,Stage 2 stent sleeve,17-4 PH,1,"DWG-011, laser cut"
+10,SHEX-010,Stage 3 iris support sleeve,17-4 PH,1,DWG-012
+11,SHEX-011,Inner mandrel,17-4 PH,1,Through bore
+12,SHEX-012,Top sub / fishing neck,4140,1,"DWG-010, 1.375 AMMT"
+13,SHEX-013,Bottom equalizing sub,4140,1,Ported
+14,SHEX-014,Expansion bladder,HNBR,1,Stage 1
+15,SHEX-015,Belleville stack,Inconel 718,1,Stage 2
+16,ST-001,Setting tool assembly,4140/17-4,1,"DWG-004, per run"
